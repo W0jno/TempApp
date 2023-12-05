@@ -1,9 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #303333;
-    color: white;
-     font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
+
+body {
+    background-color: #2b2d2d;
+    color: white;
+}
+
+button {
+    background-color: #fff; 
+    color: #303333; 
+}
+
+
+.Concentric .MuiSlider-thumb  {
+    height: 24;
+      width: 24;
+      background-color: #71de95;
+}
+
+.Concentric .MuiSlider-rail{
+    color:#71de95 ;
+}
+.Concentric .MuiSlider-track {
+    color: #71de95;
+    
+}
+
+.Pause .MuiSlider-thumb  {
+    height: 24;
+      width: 24;
+      background-color: #f1554d;
+}
+
+.Pause .MuiSlider-rail{
+    color:#f1554d ;
+}
+.Pause .MuiSlider-track {
+    color: #f1554d; 
+   
+}
+
+.Eccentric .MuiSlider-thumb  {
+    height: 24;
+      width: 24;
+      background-color: #119a97;
+}
+
+.Eccentric .MuiSlider-rail{
+    color:#119a97;
+}
+.Eccentric .MuiSlider-track {
+    color: #119a97; 
+}
+

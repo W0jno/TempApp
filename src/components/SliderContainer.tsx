@@ -1,8 +1,9 @@
 import SliderComponent from "./SliderComponent";
-import { Container } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import RemoveIcon from "@mui/icons-material/Remove";
+import RepsContainer from "./RepsContainer";
 
 function SliderContainer(): JSX.Element {
   return (
@@ -10,24 +11,30 @@ function SliderContainer(): JSX.Element {
       sx={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "80vh",
-        width: "90vw",
+        justifyContent: "space-evenly",
+        height: "65vh",
+        width: "80vw",
         fontSize: "1.5rem",
+        border: "solid 2px #404242",
+        borderRadius: "10px",
+        backgroundColor: "#303333",
+        marginBottom: "4vh",
       }}
     >
-      <SliderComponent
-        name={"Concentric"}
-        color={"#71de95"}
-        icon={<KeyboardDoubleArrowUpIcon />}
-      />
-      <SliderComponent name={"Pause"} color={"	#f1554d"} icon={<RemoveIcon />} />
-      <SliderComponent
-        name={"Eccentric"}
-        color={"#119a97"}
-        icon={<KeyboardDoubleArrowDownIcon />}
-      />
+      <h1>TempApp</h1>
+      <Box>
+        <SliderComponent
+          name={"Concentric"}
+          icon={<KeyboardDoubleArrowUpIcon />}
+        />
+        <SliderComponent name={"Pause"} icon={<RemoveIcon />} />
+        <SliderComponent
+          name={"Eccentric"}
+          icon={<KeyboardDoubleArrowDownIcon />}
+        />
+      </Box>
+
+      <RepsContainer />
     </Container>
   );
 }

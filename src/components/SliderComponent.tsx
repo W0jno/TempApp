@@ -1,23 +1,9 @@
 import { Box, Container, Slider } from "@mui/material";
 import { SliderComponentType } from "../types";
 import { useState } from "react";
-import { styled } from "@mui/material/styles";
+
 function SliderComponent(props: SliderComponentType): JSX.Element {
   const [time, setTime] = useState<number | number[]>(5);
-
-  const TempoSlider = styled(Slider)({
-    color: `${props.color}`,
-    height: 8,
-    "& .MuiSlider-track": {
-      border: "none",
-      color: `${props.color}`,
-    },
-    "& .MuiSlider-thumb": {
-      height: 24,
-      width: 24,
-      backgroundColor: `${props.color}`,
-    },
-  });
 
   return (
     <Container>
@@ -28,18 +14,20 @@ function SliderComponent(props: SliderComponentType): JSX.Element {
           justifyContent: "space-between",
         }}
       >
-        <Box>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           {props.icon}
           {props.name}
         </Box>
         {time}
       </Box>
-      <TempoSlider
-        step={1}
+
+      <Slider
         min={1}
         max={10}
         value={time}
-        onChange={(_e, value) => setTime(value)}
+        sx={{ height: "0.5rem" }}
+        onChange={(_, value) => setTime(value)}
+        className={props.name}
       />
     </Container>
   );
