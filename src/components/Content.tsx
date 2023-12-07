@@ -1,7 +1,11 @@
 import { Box, Button } from "@mui/material";
 import SliderContainer from "./SliderContainer";
 import { styled } from "@mui/material/styles";
+import { useState } from "react";
+
 function Content(): JSX.Element {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [data, setData] = useState<object>({});
   const SubmitButton = styled(Button)({
     boxShadow: "none",
     textTransform: "none",
@@ -27,15 +31,15 @@ function Content(): JSX.Element {
     },
   });
 
+  const startCounting = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    setIsClicked(true);
+    console.log(data);
+  };
   return (
     <Box>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log("SliderContainer");
-        }}
-      >
-        <SliderContainer />
+      <form onSubmit={(e) => startCounting(e)}>
+        <SliderContainer setData={setData} isClicked={isClicked} />
 
         <SubmitButton
           variant="contained"
