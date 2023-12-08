@@ -4,17 +4,25 @@ import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import RemoveIcon from "@mui/icons-material/Remove";
 import RepsContainer from "./RepsContainer";
-import { SliderContainerTypes } from "../types";
+import { SliderContainerTypes, NumberType } from "../types";
 import { useState, useEffect } from "react";
 
 function SliderContainer(props: SliderContainerTypes): JSX.Element {
-  const [time1, setTime1] = useState<number | number[]>(0);
-  const [time2, setTime2] = useState<number | number[]>(0);
-  const [time3, setTime3] = useState<number | number[]>(0);
+  const [time1, setTime1] = useState<NumberType>(0);
+  const [time2, setTime2] = useState<NumberType>(0);
+  const [time3, setTime3] = useState<NumberType>(0);
+  const [rest, setRest] = useState<NumberType>(0);
+  const [reps, setReps] = useState<NumberType>(1);
 
   useEffect(() => {
-    props.setData({ eccentric: time1, pause: time2, concentric: time3 });
-  }, [props.isClicked]);
+    props.setData({
+      eccentric: time1,
+      pause: time2,
+      concentric: time3,
+      rest: rest,
+      reps: reps,
+    });
+  }, [time1, time2, time3, rest, reps]);
   return (
     <Container
       sx={{
@@ -55,7 +63,7 @@ function SliderContainer(props: SliderContainerTypes): JSX.Element {
         />
       </Box>
 
-      <RepsContainer />
+      <RepsContainer setRest={setRest} setReps={setReps} />
     </Container>
   );
 }

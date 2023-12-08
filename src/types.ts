@@ -1,11 +1,11 @@
-type time = number;
+export type NumberType = number | number[]
 
 export interface SliderComponentTypes {
     name: string,
     icon: any,
     setData:  React.Dispatch<React.SetStateAction<object>>
     isClicked: boolean;
-    setTimeHook: React.Dispatch<React.SetStateAction<number | number[]>>;
+    setTimeHook: React.Dispatch<React.SetStateAction<NumberType>>;
 }
 export interface Colors {
     concentricColor: string,
@@ -17,4 +17,9 @@ export interface Colors {
 export interface SliderContainerTypes {
     setData:  React.Dispatch<React.SetStateAction<object>>
     isClicked: boolean;
+}
+
+export interface RepsTypes {
+    setRest: React.Dispatch<React.SetStateAction<NumberType>>;
+    setReps: React.Dispatch<React.SetStateAction<NumberType>>
 }
