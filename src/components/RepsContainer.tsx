@@ -6,7 +6,7 @@ import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import { RepsTypes, NumberType } from "../types";
 
 function RepsContainer(props: RepsTypes): JSX.Element {
-  const [rest, setRest] = useState<NumberType>(0);
+  const [rest, setRest] = useState<NumberType>(1);
   const [reps, setReps] = useState<number>(1);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ function RepsContainer(props: RepsTypes): JSX.Element {
           max={10}
           value={rest}
           sx={{ height: "0.5rem" }}
-          onChange={(_, value) => setRest(value)}
+          onChange={(_, value) => setRest(value as number)}
         />
       </Box>
 

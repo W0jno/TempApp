@@ -1,9 +1,16 @@
-export type NumberType = number | number[]
+export type NumberType = number
+export interface DataType {
+    eccentric: NumberType,
+    pause: NumberType,
+    concentric: NumberType,
+    rest: NumberType,
+     reps: NumberType
+}
 
 export interface SliderComponentTypes {
     name: string,
     icon: any,
-    setData:  React.Dispatch<React.SetStateAction<object>>
+    setData?:  React.Dispatch<React.SetStateAction<DataType>>
     isClicked: boolean;
     setTimeHook: React.Dispatch<React.SetStateAction<NumberType>>;
 }
@@ -15,7 +22,7 @@ export interface Colors {
 }
 
 export interface SliderContainerTypes {
-    setData:  React.Dispatch<React.SetStateAction<object>>
+    setData:  React.Dispatch<React.SetStateAction<DataType>>
     isClicked: boolean;
 }
 
