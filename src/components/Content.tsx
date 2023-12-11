@@ -1,10 +1,11 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import SliderContainer from "./SliderContainer";
 import SubmitButton from "./buttons/SubmitButton";
 import StopButton from "./buttons/StopButton";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useCountdown from "../customHooks/useCountdown";
 import { DataType } from "../types";
+import SecondsContainer from "./SecondsContainer";
 
 function Content() {
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -17,6 +18,7 @@ function Content() {
   });
   const { secondsLeft, start } = useCountdown();
   const [timeoutId, setTimeoutId] = useState<number | null>(null);
+  const [text, setText] = useState<string | null>(null);
 
   const performIteration = (iteration: number) => {
     if (iteration >= data.reps || iteration < 0) {
@@ -24,19 +26,23 @@ function Content() {
     }
 
     console.log("Rep number: " + (iteration + 1));
+    setText("Ecceentric");
     console.log("Ecceentric");
     start(data.eccentric);
 
     setTimeoutId(
       setTimeout(() => {
+        setText("Pause");
         console.log("Pause");
         start(data.pause);
         setTimeoutId(
           setTimeout(() => {
+            setText("Concentric");
             console.log("Concentric");
             start(data.concentric);
             setTimeoutId(
               setTimeout(() => {
+                setText("REST");
                 console.log("REST");
                 start(data.rest);
                 setTimeout(() => {
@@ -49,14 +55,6 @@ function Content() {
       }, data.eccentric * 1000)
     );
   };
-
-  /*  useEffect(() => {
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, [timeoutId]); */
 
   const startCounting = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -88,7 +86,8 @@ function Content() {
     </Box>
   ) : (
     <Box>
-      {secondsLeft > 0 && `${secondsLeft}`}
+      <SecondsContainer text={text} secondsLeft={secondsLeft} />
+
       <StopButton
         variant="contained"
         type="button"

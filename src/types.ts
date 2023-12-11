@@ -30,3 +30,8 @@ export interface RepsTypes {
     setRest: React.Dispatch<React.SetStateAction<NumberType>>;
     setReps: React.Dispatch<React.SetStateAction<NumberType>>
 }
+
+export interface SecondsContainerTypes {
+    text: string | null,
+    secondsLeft: NumberType
+}
