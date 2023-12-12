@@ -42,7 +42,7 @@ function SliderContainer(props: SliderContainerTypes): JSX.Element {
       <Box>
         <SliderComponent
           name={"Eccentric"}
-          icon={<KeyboardDoubleArrowUpIcon />}
+          icon={<KeyboardDoubleArrowDownIcon />}
           setData={props.setData}
           isClicked={props.isClicked}
           setTimeHook={setTime1}
@@ -56,7 +56,7 @@ function SliderContainer(props: SliderContainerTypes): JSX.Element {
         />
         <SliderComponent
           name={"Concentric"}
-          icon={<KeyboardDoubleArrowDownIcon />}
+          icon={<KeyboardDoubleArrowUpIcon />}
           setData={props.setData}
           isClicked={props.isClicked}
           setTimeHook={setTime3}

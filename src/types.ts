@@ -33,5 +33,11 @@ export interface RepsTypes {
 
 export interface SecondsContainerTypes {
     text: string | null,
-    secondsLeft: NumberType
+    secondsLeft: NumberType,
+    color: string | null,
+    repsTotal: NumberType,
+    rep: NumberType,
+    icon: any,
+    upDownPause: string,
+    totalSeconds: number
 }

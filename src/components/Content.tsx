@@ -6,6 +6,9 @@ import { useState } from "react";
 import useCountdown from "../customHooks/useCountdown";
 import { DataType } from "../types";
 import SecondsContainer from "./SecondsContainer";
+import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 function Content() {
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -17,33 +20,55 @@ function Content() {
     reps: 1,
   });
   const { secondsLeft, start } = useCountdown();
-  const [timeoutId, setTimeoutId] = useState<number | null>(null);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const [text, setText] = useState<string | null>(null);
+  const [color, setColor] = useState<string | null>(null);
+  const [iteration, setIteration] = useState<number>(0);
+  const [upDownPause, setUpDownPause] = useState<string>("");
+  const [icon, setIcon] = useState<any>();
+  const [totalSeconds, setTotalSeconds] = useState<number>(0);
 
   const performIteration = (iteration: number) => {
     if (iteration >= data.reps || iteration < 0) {
       return;
     }
-
+    setIteration(iteration + 1);
     console.log("Rep number: " + (iteration + 1));
+
     setText("Ecceentric");
+    setUpDownPause("Down");
+    setIcon(<KeyboardDoubleArrowDownIcon />);
+    setColor("#119a97");
     console.log("Ecceentric");
+    setTotalSeconds(data.eccentric);
     start(data.eccentric);
 
     setTimeoutId(
       setTimeout(() => {
         setText("Pause");
+        setUpDownPause("Pause");
+        setIcon(<RemoveIcon />);
+        setColor("#f1554d");
         console.log("Pause");
+        setTotalSeconds(data.pause);
         start(data.pause);
         setTimeoutId(
           setTimeout(() => {
             setText("Concentric");
+            setUpDownPause("Up");
+            setIcon(<KeyboardDoubleArrowUpIcon />);
+            setColor("#71de95");
             console.log("Concentric");
+            setTotalSeconds(data.concentric);
             start(data.concentric);
             setTimeoutId(
               setTimeout(() => {
                 setText("REST");
+                setUpDownPause("Rest");
+                setIcon("");
+                setColor("#284c71");
                 console.log("REST");
+                setTotalSeconds(data.rest);
                 start(data.rest);
                 setTimeout(() => {
                   performIteration(iteration + 1);
@@ -86,7 +111,16 @@ function Content() {
     </Box>
   ) : (
     <Box>
-      <SecondsContainer text={text} secondsLeft={secondsLeft} />
+      <SecondsContainer
+        text={text}
+        secondsLeft={secondsLeft}
+        color={color}
+        repsTotal={data.reps}
+        rep={iteration}
+        upDownPause={upDownPause}
+        icon={icon}
+        totalSeconds={totalSeconds}
+      />
 
       <StopButton
         variant="contained"
