@@ -27,9 +27,11 @@ function Content() {
   const [upDownPause, setUpDownPause] = useState<string>("");
   const [icon, setIcon] = useState<any>();
   const [totalSeconds, setTotalSeconds] = useState<number>(0);
+  const [isFinished, setIsFinished] = useState<boolean>(false);
 
   const performIteration = (iteration: number) => {
     if (iteration >= data.reps || iteration < 0) {
+      setIsFinished(true);
       return;
     }
     setIteration(iteration + 1);
@@ -84,7 +86,7 @@ function Content() {
   const startCounting = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setIsClicked(!isClicked);
-
+    setIsFinished(false);
     performIteration(0);
   };
 
@@ -119,7 +121,9 @@ function Content() {
         rep={iteration}
         upDownPause={upDownPause}
         icon={icon}
+        iteration={iteration}
         totalSeconds={totalSeconds}
+        isFinished={isFinished}
       />
 
       <StopButton

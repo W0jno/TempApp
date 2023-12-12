@@ -39,5 +39,7 @@ export interface SecondsContainerTypes {
     rep: NumberType,
     icon: any,
     upDownPause: string,
-    totalSeconds: number
+    totalSeconds: number,
+    iteration: number,
+    isFinished: boolean
 }

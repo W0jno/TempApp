@@ -43,16 +43,19 @@ function SecondsContainer(props: SecondsContainerTypes) {
           sx={{
             fontSize: "4rem",
             width: "100%",
-            height: `100%`,
+            height: `${progress * 100}%`,
             backgroundColor: `${props.color}`,
             position: "absolute",
             borderRadius: "10px",
             bottom: 0,
             animation: `${countdownAnimation} ${props.totalSeconds}s linear`,
+            animationIterationCount: props.iteration * 4,
           }}
         ></Box>
         <Box sx={{ fontSize: "4rem", position: "fixed" }}>
-          {props.secondsLeft > 0 && `${props.secondsLeft}`}
+          {props.isFinished === false
+            ? props.secondsLeft > 0 && `${props.secondsLeft}`
+            : `Finished`}
         </Box>
       </Container>
       <Box
