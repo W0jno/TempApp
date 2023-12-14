@@ -72,6 +72,7 @@ function Content() {
                 console.log("REST");
                 setTotalSeconds(data.rest);
                 start(data.rest);
+
                 setTimeout(() => {
                   performIteration(iteration + 1);
                 }, data.rest * 1000);

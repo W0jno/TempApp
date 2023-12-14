@@ -3,16 +3,16 @@ import { Container, Box } from "@mui/material";
 import { keyframes } from "@emotion/react";
 
 const countdownAnimation = keyframes`
- from {
+  from {
     height: 100%;
   }
   to {
     height: 0;
   }
 `;
+
 function SecondsContainer(props: SecondsContainerTypes) {
-  const progress =
-    (props.totalSeconds - props.secondsLeft) / props.totalSeconds;
+  console.log("Total seconds", props.totalSeconds);
 
   return (
     <Box>
@@ -43,7 +43,7 @@ function SecondsContainer(props: SecondsContainerTypes) {
           sx={{
             fontSize: "4rem",
             width: "100%",
-            height: `${progress * 100}%`,
+            height: "100%",
             backgroundColor: `${props.color}`,
             position: "absolute",
             borderRadius: "10px",
