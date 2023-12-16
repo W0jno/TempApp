@@ -12,8 +12,6 @@ const countdownAnimation = keyframes`
 `;
 
 function SecondsContainer(props: SecondsContainerTypes) {
-  console.log("Total seconds", props.totalSeconds);
-
   return (
     <Box>
       <Box
@@ -40,6 +38,7 @@ function SecondsContainer(props: SecondsContainerTypes) {
         }}
       >
         <Box
+          key={props.totalSeconds}
           sx={{
             fontSize: "4rem",
             width: "100%",

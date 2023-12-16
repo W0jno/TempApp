@@ -42,8 +42,8 @@ function Content() {
     setIcon(<KeyboardDoubleArrowDownIcon />);
     setColor("#119a97");
     console.log("Ecceentric");
-    setTotalSeconds(data.eccentric);
     start(data.eccentric);
+    setTotalSeconds(data.eccentric);
 
     setTimeoutId(
       setTimeout(() => {
@@ -52,8 +52,8 @@ function Content() {
         setIcon(<RemoveIcon />);
         setColor("#f1554d");
         console.log("Pause");
-        setTotalSeconds(data.pause);
         start(data.pause);
+        setTotalSeconds(data.pause);
         setTimeoutId(
           setTimeout(() => {
             setText("Concentric");
@@ -61,8 +61,8 @@ function Content() {
             setIcon(<KeyboardDoubleArrowUpIcon />);
             setColor("#71de95");
             console.log("Concentric");
-            setTotalSeconds(data.concentric);
             start(data.concentric);
+            setTotalSeconds(data.concentric);
             setTimeoutId(
               setTimeout(() => {
                 setText("REST");
@@ -70,8 +70,8 @@ function Content() {
                 setIcon("");
                 setColor("#284c71");
                 console.log("REST");
-                setTotalSeconds(data.rest);
                 start(data.rest);
+                setTotalSeconds(data.rest);
 
                 setTimeout(() => {
                   performIteration(iteration + 1);
