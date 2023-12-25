@@ -1,9 +1,9 @@
 import { Box, Container, Slider } from "@mui/material";
-import { SliderComponentTypes, NumberType } from "../types";
+import { SliderComponentTypes } from "../types";
 import { useState, useEffect } from "react";
 
 function SliderComponent(props: SliderComponentTypes): JSX.Element {
-  const [time, setTime] = useState<NumberType>(5);
+  const [time, setTime] = useState<any>(5);
   useEffect(() => {
     props.setTimeHook(time);
   }, [time]);
