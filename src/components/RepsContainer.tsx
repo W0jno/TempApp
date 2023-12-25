@@ -17,7 +17,7 @@ function RepsContainer(props: RepsTypes): JSX.Element {
   return (
     <Box
       sx={{
-        height: "20vh",
+        height: "22vh",
         border: "solid 2px #797a7a",
         borderRadius: "10px",
         display: "flex",
