@@ -29,7 +29,13 @@ function RepsContainer(props: RepsTypes): JSX.Element {
       }}
     >
       <Box sx={{ width: "90%" }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: "10px",
+          }}
+        >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <AccessTimeIcon sx={{ marginRight: "5px" }} />
             Rest between reps
