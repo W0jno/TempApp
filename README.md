@@ -3,7 +3,7 @@
 
 ![1](https://github.com/W0jno/TempApp/assets/50086154/2a2aca93-5da5-49e3-9fa4-8866eeb1c295)
 
-
+ LINK TO THE LIVE PREVIEW: https://w0jno.github.io/TempApp/
 
 # React + TypeScript + Vite
 
